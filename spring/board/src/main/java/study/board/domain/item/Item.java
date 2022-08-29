@@ -1,9 +1,6 @@
 package study.board.domain.item;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.Range;
-
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -15,14 +12,12 @@ import java.util.List;
 public class Item {
 
     private Long id;            // 상품 번호
-
     @NotBlank
     private String itemName;    // 상품 이름
-
-    @NotNull @Range(min = 1000, max = 1000000)
+    @NotNull
     private Integer price;      // 상품 가격
 
-    @NotNull @Max(value = 9999)
+    @NotNull
     private Integer quantity;   // 상품 수량
 
     private Boolean open;           // 판배 여부

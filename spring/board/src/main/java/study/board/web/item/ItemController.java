@@ -1,4 +1,4 @@
-package study.board.domain.item;
+package study.board.web.item;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -7,6 +7,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import study.board.domain.item.DeliveryCode;
+import study.board.domain.item.Item;
+import study.board.repository.ItemRepository;
+import study.board.domain.item.ItemType;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -29,7 +33,7 @@ public class ItemController {
     public String itemList(Model model) {
         List<Item> itemList = itemRepository.findAll();
         model.addAttribute("itemList", itemList);
-        return "itemList";
+        return "item/itemList";
     }
 
     /* 상품 상세 */
@@ -37,14 +41,14 @@ public class ItemController {
     public String item(@PathVariable Long itemId, Model model) {    // PathVariable 로 넘어온 상품 ID로 상품을 조회하고 모델에 담는다.
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "item";
+        return "item/item";
     }
 
     /* 상품 등록 뷰 템플릿 호출 */
     @GetMapping("/add")
     public String addForm(Model model) {
         model.addAttribute("item", new Item());     // th:object 적용을 위해 빈 오프젝트 생성 후 뷰에 전달
-        return "addForm";
+        return "item/addForm";
     }
 
     /* 상품 등록 처리*/
@@ -63,7 +67,7 @@ public class ItemController {
         }
         // 검증에 실패하면 다시 입력 폼으로
         if (bindingResult.hasErrors()) {
-            return "addForm";
+            return "item/addForm";
         }
         // 성공 로직
         item.setItemName(item.getItemName());
@@ -81,7 +85,7 @@ public class ItemController {
     public String editForm(@PathVariable Long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "editForm";
+        return "item/editForm";
     }
 
     /* 상품 수정 처리 */
@@ -100,7 +104,7 @@ public class ItemController {
         }
         // 검증에 실패하면 다시 입력 폼으로
         if (bindingResult.hasErrors()) {
-            return "editForm";
+            return "item/editForm";
         }
 
         item.setItemName(item.getItemName());

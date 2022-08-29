@@ -1,6 +1,7 @@
-package study.board.domain.item;
+package study.board.repository;
 
 import org.springframework.stereotype.Repository;
+import study.board.domain.item.Item;
 
 import java.util.ArrayList;
 import java.util.HashMap;

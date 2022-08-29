@@ -3,7 +3,7 @@ package study.board.domain;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import study.board.domain.item.Item;
-import study.board.domain.item.ItemRepository;
+import study.board.repository.ItemRepository;
 
 import java.util.List;
 
