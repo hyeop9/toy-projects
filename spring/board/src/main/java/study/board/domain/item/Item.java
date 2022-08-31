@@ -16,7 +16,6 @@ public class Item {
     private String itemName;    // 상품 이름
     @NotNull
     private Integer price;      // 상품 가격
-
     @NotNull
     private Integer quantity;   // 상품 수량
 
