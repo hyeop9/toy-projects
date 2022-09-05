@@ -11,7 +11,7 @@ import java.util.*;
 @Repository
 public class MemberRepository {
 
-    private static Map<Long, Member> store = new HashMap<>();   //  실무에선 동시성 문제로 ConcurrentHashMap 사용 고려
+    private static Map<Long, Member> store = new HashMap<>();   //  실무에선 동시성 문제로 ConcurrentHashMap 사용을 고려한다.
     private static long sequence = 0L;
 
     public Member save(Member member) {
