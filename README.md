@@ -2,6 +2,7 @@
 
 ## 1. board
   * CRUD
+  * MVC
   * Bean Vaildation
   * 로그인 필터
   
