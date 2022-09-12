@@ -1,6 +1,6 @@
 # toy-projects
 
-## 1. board
+## 1. spring-board
   * CRUD
   * MVC
   * Bean Vaildation
